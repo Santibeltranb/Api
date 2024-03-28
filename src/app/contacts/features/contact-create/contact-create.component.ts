@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 
-import { IconRocket } from '../../../shared/icons/icons/rocket';
+import { IconContact } from '../../../shared/icons/icons/contact';
 import { IconBack } from '../../../shared/icons/icons/back';
 import { ContactsService } from '../../data-access/contacts.service';
 import { ContactForm } from '../../shared/interfaces/contacts.interface';
@@ -87,7 +87,7 @@ export interface CreateForm {
             class="text-sm flex text-nowrap items-center gap-x-2 hover:text-green-300 transition-[color] ease-in-out duration-200 p-4 cursor-pointer"
             type="submit"
           >
-            <app-icon-rocket />
+            <app-icon-contact />
             @if (contactId) {
               Editar Contacto
             } @else {
@@ -99,7 +99,7 @@ export interface CreateForm {
     </div>
   `,
   standalone: true,
-  imports: [ReactiveFormsModule, IconRocket, IconBack, RouterLink],
+  imports: [ReactiveFormsModule, IconContact, IconBack, RouterLink],
 })
 export default class ContactCreateComponent {
   private _formBuilder = inject(FormBuilder).nonNullable;
