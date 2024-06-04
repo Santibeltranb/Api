@@ -72,3 +72,21 @@ export class ContactsService {
     return doc(this._firestore, `${PATH}/${id}`);
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FirestoreService {
+  constructor(private firestore: Firestore) {}
+
+  getCollectionData(contacts: string): Observable<any[]> {
+    const collectionRef = collection(this.firestore, contacts);
+    return collectionData(collectionRef, { idField: 'id' }) as Observable<any[]>;
+  }
+
+  logCollectionData(contacts: string) {
+    this.getCollectionData(contacts).subscribe(data => {
+      console.log(`Datos obtenidos desde ${contacts}:`, data);
+    });
+  }
+}
